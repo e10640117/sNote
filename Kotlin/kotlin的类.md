@@ -43,7 +43,12 @@
     open class MainActivity:Activity(),OnClickListener
 
 
-    //动态代理 by关键字
+    //动态代理 by关键字 
+    //属性委托 将统一的操作委托给统一的对象，by后面跟一个对象
+    //一个常用的用法 懒加载
+    val star:Star by lazy{//这个变量只会被创建一次，在第一次访问该变量的时候创建
+        Star()
+    }
     interface Star{}
     class SuperStar(Star star):Star by star{
         
@@ -99,3 +104,5 @@
             val instance = Single()
         }
     }
+### 接口
+* _kotlin 的接口可以定义抽象属性_
